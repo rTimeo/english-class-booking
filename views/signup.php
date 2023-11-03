@@ -20,5 +20,17 @@
         </form>
 
     </section>
+
+
+    <section class="login-form">
+        <h1>Sign in</h2> 
+        <form action="../models/login.inc.php" method="post">
+ 
+            <input type="text" name="uid" placeholder="username/Email">
+            <input type="password" name="pwd" placeholder="password">
+            <button type="submit" name="submit">login</button>
+        </form>
+
+    </section>
 </body>
 </html>
