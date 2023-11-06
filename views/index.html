@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="../assets/javascript/transition-reg-log.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.1/gsap.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form action="../models/signup.inc.php" method="post">
+            <h2>Create account</h2>
+            <input type="text" name="name" placeholder="full name">
+            <input type="text" name="email" placeholder="email">
+            <input type="text" name="uid" placeholder="username">
+            <input type="password" name="pwd" placeholder="password">
+            <input type="password" name="pwdrepeat" placeholder="repeat password">
+            <button type="submit" name="submit">Sign Up</button>
+
+
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form action="../models/login.inc.php" method="post">
+            <h1>Sign in</h1>
+            <input type="text" name="uid" placeholder="username/Email">
+            <input type="password" name="pwd" placeholder="password">
+            <button type="submit" name="submit">login</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <button class="ghost" id="signIn">Sign In</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Hello, Friend!</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
+            <button class="ghost" id="signUp">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+</body>
+</html>
