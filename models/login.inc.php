@@ -1,5 +1,5 @@
 <?php
-
+//login.inc.php
 if(isset($_POST["submit"])){
     $username = $_POST["uid"];
     $pwd = $_POST["pwd"];
@@ -10,7 +10,7 @@ if(isset($_POST["submit"])){
 
 
     if(emptyInputLogin($username, $pwd) !== false){
-        header("location: ../views/signup.php?error=emptyinput");
+        header("location: ../views/registration-login.php?error=emptyinput");
         exit();
     }
 
@@ -18,6 +18,6 @@ if(isset($_POST["submit"])){
 
 } 
 else{
-    header("location: ../views/signup.php");
+    header("location: ../views/registration-login.php");
     exit();
 }

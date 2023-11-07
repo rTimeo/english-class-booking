@@ -15,34 +15,35 @@ if(isset($_POST["submit"])){
 
 
     if(emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat) !== false){
-        header("location: ../views/signup.php?error=emptyinput");
+        header("location: ../views/registration-login.php?error=emptyinput&type=registration");
         exit();
     }
+    
 
     if(invalidUid($username) !== false){
-        header("location: ../views/signup.php?error=invaliduid");
+        header("location: ../views/registration-login.php?error=invaliduid");
         exit();
     }
 
     if(invalidEmail($email) !== false){
-        header("location: ../views/signup.php?error=invalidemail");
+        header("location: ../views/registration-login.php?error=invalidemail");
         exit();
     }
 
     if(pwdMatch($pwd, $pwdRepeat) !== false){
-        header("location: ../views/signup.php?error=passwordsdontmatch");
+        header("location: ../views/registration-login.php?error=passwordsdontmatch");
         exit();
     }
 
     if(uidExists($conn, $username, $email) !== false){
-        header("location: ../views/signup.php?error=usernametaken");
+        header("location: ../views/registration-login.php?error=usernametaken");
         exit();
     }
 
     createUser($conn, $name, $email, $username, $pwd);
 
 }else{
-    header("location: ../views/signup.php");
+    header("location: ../views/registration-login.php");
     exit();
 }
 
