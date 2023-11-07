@@ -54,7 +54,7 @@ function uidExists($conn, $username, $email){
     $stmt = mysqli_stmt_init($conn);
 
     if(!mysqli_stmt_prepare($stmt, $sql)){
-        header("location: ../views/signup.php?error=stmtfailed");
+        header("location: ../views/registration-login?error=stmtfailed");
         exit();
 
     }
@@ -80,7 +80,7 @@ function createUser($conn, $name, $email, $username, $pwd){
     $stmt = mysqli_stmt_init($conn);
 
     if(!mysqli_stmt_prepare($stmt, $sql)){
-        header("location: ../views/signup.php?error=stmtfailed");
+        header("location: ../views/registration-login?error=stmtfailed");
         exit();
 
     }
@@ -91,7 +91,7 @@ function createUser($conn, $name, $email, $username, $pwd){
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-    header("location: ../views/signup.php?error=none");
+    header("location: ../views/registration-login?error=none");
         exit();
 }
 
@@ -117,7 +117,7 @@ function loginUser($conn,$username,$pwd){
     $uidExists = uidExists($conn, $username, $username);
 
     if($uidExists ===false){
-        header("location: ../views/signup.php?error=wronglogin");
+        header("location: ../views/registration-login?error=wronglogin");
         exit();
 
     }
@@ -126,14 +126,14 @@ function loginUser($conn,$username,$pwd){
     $checkPwd = password_verify($pwd, $pwdHashed);
 
     if($checkPwd === false){
-        header("location: ../views/signup.php?error=wronglogin");
+        header("location: ../views/registration-login.php?error=wronglogin");
         exit();
     }
     else if ($checkPwd === true){
         session_start();
         $_SESSION["userid"] = $uidExists["usersId"];
         $_SESSION["useruid"] = $uidExists["usersUid"];
-        header("location: ../views/login.php");
+        header("location: ../views/booking-page.php");
         exit();
 
     }
