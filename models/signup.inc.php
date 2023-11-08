@@ -4,7 +4,6 @@ if(isset($_POST["submit"])){
 
     $name = $_POST["name"];
     $email = $_POST["email"];
-    $username = $_POST["uid"];
     $pwd = $_POST["pwd"];
     $pwdRepeat = $_POST["pwdrepeat"];
 
@@ -14,16 +13,13 @@ if(isset($_POST["submit"])){
     
 
 
-    if(emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat) !== false){
+    if(emptyInputSignup($name, $email, $pwd, $pwdRepeat) !== false){
         header("location: ../views/registration-login.php?error=emptyinput&type=registration");
         exit();
     }
     
 
-    if(invalidUid($username) !== false){
-        header("location: ../views/registration-login.php?error=invaliduid");
-        exit();
-    }
+
 
     if(invalidEmail($email) !== false){
         header("location: ../views/registration-login.php?error=invalidemail");
@@ -35,12 +31,9 @@ if(isset($_POST["submit"])){
         exit();
     }
 
-    if(uidExists($conn, $username, $email) !== false){
-        header("location: ../views/registration-login.php?error=usernametaken");
-        exit();
-    }
 
-    createUser($conn, $name, $email, $username, $pwd);
+
+    createUser($conn, $name, $email, $pwd);
 
 }else{
     header("location: ../views/registration-login.php");

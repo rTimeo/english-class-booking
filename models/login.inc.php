@@ -1,7 +1,7 @@
 <?php
 //login.inc.php
 if(isset($_POST["submit"])){
-    $username = $_POST["uid"];
+    $email = $_POST["email"];
     $pwd = $_POST["pwd"];
 
     require_once 'dbh.php';
@@ -9,12 +9,12 @@ if(isset($_POST["submit"])){
     
 
 
-    if(emptyInputLogin($username, $pwd) !== false){
+    if(emptyInputLogin($email, $pwd) !== false){
         header("location: ../views/registration-login.php?error=emptyinput");
         exit();
     }
 
-    loginUser($conn, $username, $pwd);
+    loginUser($conn, $email, $pwd);
 
 } 
 else{
