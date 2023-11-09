@@ -30,7 +30,10 @@ if(isset($_POST["submit"])){
         header("location: ../views/registration-login.php?error=passwordsdontmatch");
         exit();
     }
-
+    if(emailExists($conn, $email) !== false){
+        header("location: ../views/registration-login.php?error=usernametaken");
+        exit();
+    }
 
 
     createUser($conn, $name, $email, $pwd);
